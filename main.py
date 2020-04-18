@@ -1,5 +1,5 @@
 import discord #pip install discord
-from notOnGit import laCleSecrete #le token est dans un fichier à part et ignoré par github
+from notOnGit import laCleSecrete #le token (Module ignoré par github)
 from discord.utils import get
 
 #ajouter un composant de discord.py
@@ -34,7 +34,6 @@ async def on_raw_reaction_add(payload):
 		print("Grade ajouté !")
 		await membre.add_roles(python_role)
 		await membre.send("Tu obtiens le grade Python !")
-		#server : 700614497118978099
 
 #detecter quand quelqu'un supprime l'emoji sur le msg
 @bot.event
@@ -73,9 +72,7 @@ async def on_command_error(ctx, error):
 	if isinstance(error, commands.MissingRequiredArgument):
 		await ctx.send("tu doit taper !bienvenue @pseudo")
 
-#donner le jeton pour qu'il se connecte
-jeton = laCleSecrete
 
-#connecter au serveur
-bot.run(jeton)
+#connection au serveur avec le jeton situé dans un fichier à part ignoré par Github
+bot.run(laCleSecrete)
 
